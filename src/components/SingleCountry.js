@@ -1,17 +1,15 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import React, { useEffect, } from "react";
+import { Link, useParams } from "react-router-dom";
 import { useCountryContext } from '../CountriesContext'; 
 
 
 
 export default function SingleCountry() {
 
-    const { country, setCountry } =
-    useCountryContext();
-
+    const { country, setCountry } = useCountryContext();
     const { name } = useParams();
+
 
     useEffect(() => {
         const getSingleCountry = async() => {
@@ -25,9 +23,6 @@ export default function SingleCountry() {
         };
         getSingleCountry()
     }, );
-    useEffect(() => {
-        document.title = `Countries | ${name}`;
-    }, [name]);
 
 
     return (
