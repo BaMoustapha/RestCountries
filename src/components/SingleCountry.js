@@ -18,7 +18,7 @@ export default function SingleCountry() {
             try{
                 const res = await fetch(`https://restcountries.com/v3.1/name/${name}`)
                 const data = await res.json()
-                setCountry(data)
+                setCountry(Array.isArray(data) ? data : [])
             } catch{
                 console.error("Error");
             }
@@ -75,3 +75,4 @@ export default function SingleCountry() {
         </>
     )
 }
+
